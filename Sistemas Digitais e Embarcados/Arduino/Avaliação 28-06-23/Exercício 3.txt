@@ -1,0 +1,42 @@
+//Gustavo DAgostin Zanelato
+
+//inserindo as variaveis
+int led_bomba = 13;
+int led_alarme = 12;
+int botaoH = 7;
+int botaoL = 6;
+int H = 0;
+int L = 0;
+
+void setup () {
+
+  pinMode(led_bomba, OUTPUT);  //botoes como entradas
+  pinMode(led_alarme, OUTPUT);
+  pinMode(botaoH, INPUT);
+  pinMode(botaoL, INPUT); //e leds como saidas
+}
+
+void loop (){
+
+  H = digitalRead(botaoH); //variaveis dos botoes
+  L = digitalRead(botaoL);
+
+//desenvolvimento
+  if((H == HIGH) && (L == HIGH)){
+    digitalWrite(led_alarme, HIGH);
+  }
+
+  if(H == LOW){
+    digitalWrite(led_bomba, LOW);
+  }
+
+  if(L == HIGH){
+    digitalWrite(led_bomba, HIGH);
+  }
+
+  if(L == LOW){
+    digitalWrite(led_bomba, HIGH);
+    digitalWrite(led_alarme, HIGH);
+  }
+}
+ 

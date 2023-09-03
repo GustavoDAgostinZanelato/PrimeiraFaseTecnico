@@ -1,0 +1,45 @@
+//Gustavo DAgostin Zanelato
+
+//definindo as variavies
+int led_motor = 13;
+int led_alarme = 12;
+int botao_liga = 7;
+int botao_contagem = 6;
+int liga = 0;
+int contagem = 0;
+int contador = 0;
+int aux1 = 0;
+
+void setup (){
+  pinMode(led_motor, OUTPUT); //leds como saidas
+  pinMode(led_alarme, OUTPUT);
+  pinMode(botao_liga, INPUT);
+  pinMode(botao_contagem, INPUT); //botoes como entrada
+  Serial.begin(9600);
+}
+
+void loop (){
+
+  liga = digitalRead(botao_liga);
+  contagem = digitalRead(botao_contagem);
+
+  if(liga == HIGH){
+    digitalWrite(led_motor, HIGH);
+  }
+
+  if(contagem == HIGH){
+    aux1 == 1;
+      if(aux1 == 1){
+      contador++;
+    }
+  }
+  if(contador == 60){ /caso o contador seja igual a 60 os leds irao apagar
+    digitalWrite(led_motor, LOW);
+    digitalWrite(led_alarme, HIGH);
+    delay(1000);
+    digitalWrite(led_alarme, LOW);
+    contador = 0;
+  }
+}
+  
+
