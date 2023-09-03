@@ -1,0 +1,7 @@
+Gustavo; 1,70; 16
+Davi; 1,82; 16
+lucas; 1,72; 16
+Bruno; 1,72; 16
+Gabriel R.; 1,69; 16
+Gabriel T.; 1,73; 16
+Matheus; 1,73; 17
