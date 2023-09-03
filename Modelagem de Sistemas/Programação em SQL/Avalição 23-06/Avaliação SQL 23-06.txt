@@ -1,0 +1,148 @@
+/* ************************************************************************
+
+Colégio SATC
+Curso Técnico em Informática
+Disciplina: Modelagem de Sistemas
+Turma: 1190
+Professora: Cristiane Pavei Martinello Fernandes
+Aluno: Gustavo D'Agostin Zanelato
+Data: 23/06/2023
+
+************************************************************************ */
+
+//PARTE 1: 
+
+create database UNIVERSIDADE;
+
+create table ESTADOS(
+codigo int(5) not null,
+nome   varchar(50) not null,
+primary key (codigo));
+
+create table CURSOS(
+codigo      int(5)      not null,
+nome        varchar(50) not null,
+coordenador varchar(50) not null,
+primary key (codigo));
+
+create table ACADEMICOS(
+codigo    int(5)      not null,
+nome      varchar(50) not null,
+endereco  varchar(50) not null,
+codcidade int(5)      not null,
+telefone  int(10)     not null,
+codcurso  int(5)      not null,
+primary key (codigo),
+foreign key (codcidade) references CIDADES (codigo),
+foreign key (codcurso)  references CURSOS (codigo));
+
+create table CIDADES(
+codigo    int(5)      not null,
+nome      varchar(50) not null,
+codestado int(5)      not null,
+primary key (codigo),
+foreign key (codestado) references ESTADOS(codigo));
+
+create table PROFESSORES(
+codigo    int(5)      not null,
+nome      varchar(50) not null,
+endereco  varchar(50) not null,
+codcidade int(5)      not null,
+telefone  int(10)     not null,
+primary key (codigo),
+foreign key (codcidade) references CIDADES(codigo));
+
+create table MATERIAS(
+codigo       int(5)      not null,
+nome         varchar(50) not null,
+codcurso     int(5)      not null,
+codprofessor int(5)      not null,
+ementa       varchar(50) not null,
+horas        int(5)      not null,
+primary key (codigo),
+foreign key (codcurso)     references CURSOS (codigo),
+foreign key (codprofessor) references PROFESSORES (codigo));
+
+
+
+//PARTE 2:
+
+insert ESTADOS (codigo,nome) 
+values (1,"Santa Catarina");
+insert ESTADOS (codigo,nome) 
+values (2,"Paraná");
+insert ESTADOS (codigo,nome)
+values (3,"Rio Grande do Sul");
+
+insert CIDADES (codigo,nome,codestado)  
+values (1,"Criciuma",1);
+insert CIDADES (codigo,nome,codestado) 
+values (2,"Floarianópolis",1);
+insert CIDADES (codigo, nome, codestado) 
+values (3,"Rincão",1);
+
+insert CURSOS (codigo,nome,coordenador) 
+values (1,"Enfermagem","Zé Gotinha do SUS");
+insert CURSOS (codigo,nome,coordenador) 
+values (2,"Direito","Sócrates");
+insert CURSOS (codigo,nome,coordenador) 
+values (3,"Arquitetura","Oscar Niemeyer");
+
+insert ACADEMICOS (codigo,nome,endereco,codcidade,telefone,codcurso)
+values (1,"Mariana","Centro",1,8989,1);
+insert ACADEMICOS (codigo,nome,endereco,codcidade,telefone,codcurso)
+values (2,"Joana","Jardim Angélica",1,2323,2);
+insert ACADEMICOS (codigo,nome,endereco,codcidade,telefone,codcurso)
+values (3,"Nathalia","Bairro Pantanal",2,9393,3);
+
+insert PROFESSORES (codigo,nome,endereco,codcidade,telefone)
+values(1,"Roberto Silva","Bairro Centro",1,4002);
+insert PROFESSORES (codigo,nome,endereco,codcidade,telefone)
+values(2,"Maria Aparecida","Rio Maina",1,5757);
+insert PROFESSORES (codigo,nome,endereco,codcidade,telefone)
+values(3,"José da Cunha","Jurerê Internacional",2,6767);
+
+insert MATERIAS (codigo,nome,codcurso,codprofessor,ementa,horas)
+values(1,"Farmacologia",1,1,"Medicamentos",5);
+insert MATERIAS (codigo,nome,codcurso,codprofessor,ementa,horas)
+values(2,"Estudos Sociais",2,2,"Atualidades",5);
+insert MATERIAS (codigo,nome,codcurso,codprofessor,ementa,horas)
+values(3,"Urbanismo e Inovação",3,3,"Desenho Técnico",2);
+
+
+
+//PARTE 3:
+
+a) insert CIDADES (codigo,nome,codestado) 
+   values(4,"Araranguá",1);
+
+b) insert CURSOS (codigo,nome,coordenador)
+   values(4,"Administração","Adriana Just");
+
+c) insert ACADEMICOS (codigo,nome,endereco,codcidade,telefone,codcurso)
+   values(4,"Andre Luiz","Rua Anita Garibaldi - Centro",1,3434,1);
+   insert ACADEMICOS (codigo,nome,endereco,codcidade,telefone,codcurso)
+   values(5,"Ana Maria",“Rua Manoel Bandeira - Prospera”,1,3535,2);
+
+d) update ACADEMICOS set endereco = “Avenida Universitária - Pinheirinho”
+   where codigo = 4;    
+
+e) update ACADEMICOS set telefone = 3636  
+   where codigo = 5;
+              
+f) update CIDADES set endereco = “Siderópolis”  
+   where codigo = 4;  
+   
+g) delete from CIDADES
+   where codigo = 5;  
+
+h) delete from CURSOS
+   where codigo = 5;    
+
+i) select * from CIDADES
+
+j) select * from CURSOS
+
+k) select * from ACADEMICOS
+
+  

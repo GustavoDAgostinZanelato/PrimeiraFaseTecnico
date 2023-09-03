@@ -1,0 +1,60 @@
+// comando criar o banco dados
+
+create database ESCOLA;
+
+
+// criar as tabelas do banco
+//ordem de tabelas (primarias e secundarias)
+
+create table ESTADO(
+codigo int(5) not null,
+nome   varchar(50) not null,
+primary key (codigo));
+
+create table CIDADE(
+codigo    int(5)      not null,
+nome      varchar(50) not null,
+codestado int(5)      not null,
+primary key (codigo),
+foreign key (codestado) references ESTADO(codigo));
+
+create table CURSO(
+codigo      int(5)      not null,
+nome        varchar(50) not null,
+coordenador varchar(50) not null,
+primary key (codigo));
+
+create table PROFESSOR(
+codigo    int(5)      not null,
+nome      varchar(50) not null,
+endereco  varchar(50) not null,
+codcidade int(5)      not null,
+telefone  int(10)     not null,
+primary key (codigo),
+foreign key (codcidade) references CIDADE(codigo)); 
+
+create table ALUNO(
+codigo    int(5)      not null,
+nome      varchar(50) not null,
+endereco  varchar(50) not null,
+codcidade int(5)      not null,
+telefone  int(10)     not null,
+codcurso  int(5)      not null,
+primary key (codigo),
+foreign key (codcidade) references CIDADE(codigo),
+foreign key (codcurso)  references CURSO(codigo));
+
+create table DISCIPLINA(
+codigo       int(5)      not null,
+nome         varchar(50) not null,
+codcurso     int(5)      not null,
+codprofessor int(5)      not null,
+ementa       varchar(50) not null,
+horas        int(5)      not null,
+primary key (codigo),
+foreign key (codcurso)     references CURSO(codigo),
+foreign key (codprofessor) references PROFESSOR(codigo));
+
+
+
+

@@ -1,0 +1,137 @@
+1)Programar o Banco de Dados
+
+create table estado (
+codigo int(5) not null,
+nome varchar(50) not null,
+primary key(codigo));
+
+create table cidade (
+codigo int(5) not null,
+nome varchar(50), not null,
+codestado int(5) not null
+primary key (codigo),
+foreign key (codestado) references estado (codigo));
+
+create table curso (
+codigo int(5) not null,
+nome varchar(50) not null,
+coordeador varchar(50) not null,
+primary key(codigo));
+
+create table professor (
+codigo int(5) not null,
+nome varchar(50) not null,
+endereco varchar(50) not null,
+codcidade int(5) not null,
+telefone int(10) not null,
+primary key (codigo),
+foreign key (codcidade) references cidade (codigo));
+
+create tale aluno(
+codigo int(5) not null,
+nome varchar(50) not null,
+endereco varchar(50), not null,
+codcidade int(5) not null,
+telefone int(10) not null,
+cod curso int(5) not null,
+primary key (codigo),
+fereign (codcidade) references cidade(codigo),
+foreign (codcurso) ferences curso(codigo));
+
+create table disciplina (
+codigo int(5) not null,
+nome varchar(50) not null,
+ementa varchar(50) not null,
+hora int (2) not null,
+codcurso int (5) not null,
+primary key (codigo),
+fereign key (codcurso) references curso(codigo),
+foreign(codprof) references porfessor(codigo));
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2)Inserir os Dados 
+
+insert ESTADO (codigo,nome)                  //"insert" serve para atribuir alguma informação na variável
+values (1, "Santa Catarina");
+insert ESTADO (codigo,nome)
+values (2, "Paraná");
+insert ESTADO (codigo,nome)
+values (3, "Rio Grande do Sul");
+
+insert CIDADE (codigo,nome,codestado)
+values (1,"Criciúma,1);                      //O número 1 depois da cidade indica que ela é do estado de SC
+insert CIDADE (codigo,nome,codestado)
+values (2,"Içara",1);
+insert 	CIDADE (codigo,nome,codestado)
+values (3,"Londrina",2)
+insert CIDADE (codigo,nome,codestado)
+values (4,"Rio Grande",3);
+
+-------------------------------------
+
+insert CURSO (codigo,nome,coordenador)
+values (1,"Informática","Gilberto Silva");
+insert CURSO (codigo,nome,coordenador)
+values (2,"Design","Daniel Vieira");
+insert CURSO (codigo,nome,coordenador)
+values (3,"Administração","Adriana Just");
+
+-------------------------------------
+
+insert PROFESSOR (codigo,nome,endereco,codcidade,telefone)   //As informações do "value" devem estar na mesma sequencia da presente no "insert"
+values (1,"Cris Pavei","Jardim Angélica",1,12345);
+insert PROFESSOR (codigo,nome,endereco,codcidade,telefone)
+values (2,"Gustavo Carvalho",Centro",1,54321);
+insert PROFESSOR (codigo,nome,endereco,codcidade,telefone)
+values (3,"Eduardo Just","Rio Maina",1,112233);             //O número 1 é referente a cidade de Criciúma
+
+-------------------------------------
+
+insert ALUNO (codcidade,nome,endereco,codcidade,telefone,codcurso)
+values (1,"Lucas Neves","Rio Maina",1,12345,1);
+insert ALUNO (codcidade,nome,endereco,codcidade,telefone,codcurso)  //O último valor refere-se ao curso do aluno
+values (2,"Ana Maria","Centro",1,223344,2);
+insert ALUNO (codcidade,nome,endereco,codcidade,telefone,codcurso)
+values (3,"André Luiz","Próspera",1,556677,3);
+
+-------------------------------------
+
+insert DISCIPLINA (codigo,nome,codcurso,codprofessor,ementa,horas)
+values (1,"Banco de Dados"1,1,"Analise e Modelagem de Dados,3);
+insert DISCIPLINA (codigo,nome,codcurso,codprofessor,ementa,horas)
+values (2,"Fotografia",2,2,"Imagens e Fotografias",5);
+insert DISCIPLINA (codigo,nome,codcurso,codprofessor,ementa,horas)
+values (3,Matemática Financeira",3,3,"Matemática e Estatística",2);
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+3)Caso seja nescessário excluir um registro da tabela (delete)
+
+delete from CIDADE
+where codigo = 2;      //O where é uma condição a ser atendida para realizar o delete. Isso evita de acidentalmente deletar algo importante
+
+delete from ESTADO
+where codigo = 3;     //O número 3 indica que será deletado o estado de Rio Grande do Sul
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+4)Caso precise alterar uma informação dentro do registro (update)
+
+update PROFESSOR set telefone = 98747   //Mudar o telefone da Prof. Cris
+where codigo = 1;                       //Codigo da Cris
+
+update PROFESSOR set telefone = 38523, endereco = "Centro"  //Mudar o telefone e endereco do Prof. Gustavo
+where codigo = 2;
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+5)Para pesquisar por informações dentro da tabela (select)
+
+select * from PROFESSOR;      //O Aste-Risco significa selecior todos os itens a partir de alguma variávl
+                              //A tradução seria "Selecionar todas as linhas a partir de PROFESSOR"
+
+select * from PROFESSOR
+where codcidade = 1;          //Vai mostrar somente os professores que moram em Criciúma 
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+6)Remover tabelas e banco (drop)
+
+drop disciplina  //Essa função vai excluir a estrutura inteira da disciplina
+                 //drop deleta toda a estrutura, enquato o deleta apaga somente a linha selecionada

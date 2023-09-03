@@ -1,0 +1,56 @@
+<mxfile host="app.diagrams.net" modified="2023-04-14T17:09:23.268Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36" etag="puNcCCO1JKtCuZoKILyB" version="21.1.8" type="device">
+  <diagram name="Página-1" id="yG9Mzea3BIb2Z6on_5N4">
+    <mxGraphModel dx="880" dy="484" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="e6naLYTC4fkbkvr3QrGz-1" value="Aluno" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="234" y="200" width="110" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="e6naLYTC4fkbkvr3QrGz-2" value="Código PK&lt;br&gt;Nome&lt;br&gt;Endereço&lt;br&gt;Cidade&lt;br&gt;Telefone&lt;br&gt;CódigoCurso FK&lt;br&gt;CódigoTurma FK" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" parent="e6naLYTC4fkbkvr3QrGz-1" vertex="1">
+          <mxGeometry y="50" width="110" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="e6naLYTC4fkbkvr3QrGz-5" value="Cursos" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="498" y="205" width="96" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="e6naLYTC4fkbkvr3QrGz-6" value="Código PK&lt;br&gt;Nome&lt;br&gt;Coordenador&lt;br&gt;Sala&lt;br&gt;Telefone" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" parent="e6naLYTC4fkbkvr3QrGz-5" vertex="1">
+          <mxGeometry y="50" width="96" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="e6naLYTC4fkbkvr3QrGz-9" value="Turma" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="498" y="380" width="96" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="e6naLYTC4fkbkvr3QrGz-10" value="Código PK&lt;br&gt;Nome&lt;br&gt;Sala&lt;br&gt;Período" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" parent="e6naLYTC4fkbkvr3QrGz-9" vertex="1">
+          <mxGeometry y="50" width="96" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="e6naLYTC4fkbkvr3QrGz-13" value="" style="endArrow=none;html=1;rounded=0;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="346" y="280" as="sourcePoint" />
+            <mxPoint x="496" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e6naLYTC4fkbkvr3QrGz-14" value="N" style="resizable=0;html=1;whiteSpace=wrap;align=right;verticalAlign=bottom;" parent="e6naLYTC4fkbkvr3QrGz-13" connectable="0" vertex="1">
+          <mxGeometry x="1" relative="1" as="geometry">
+            <mxPoint x="-138" y="-2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e6naLYTC4fkbkvr3QrGz-16" value="1" style="resizable=0;html=1;whiteSpace=wrap;align=right;verticalAlign=bottom;" parent="1" connectable="0" vertex="1">
+          <mxGeometry x="492.00310344827585" y="279" as="geometry" />
+        </mxCell>
+        <mxCell id="e6naLYTC4fkbkvr3QrGz-22" value="" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" parent="1" source="e6naLYTC4fkbkvr3QrGz-2" target="e6naLYTC4fkbkvr3QrGz-10" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="350" y="450" as="sourcePoint" />
+            <mxPoint x="504" y="450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e6naLYTC4fkbkvr3QrGz-23" value="N" style="resizable=0;html=1;whiteSpace=wrap;align=right;verticalAlign=bottom;" parent="e6naLYTC4fkbkvr3QrGz-22" connectable="0" vertex="1">
+          <mxGeometry x="1" relative="1" as="geometry">
+            <mxPoint x="-139" y="-114" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e6naLYTC4fkbkvr3QrGz-24" value="1" style="resizable=0;html=1;whiteSpace=wrap;align=right;verticalAlign=bottom;" parent="1" connectable="0" vertex="1">
+          <mxGeometry x="492.0024147895341" y="438.00024065006755" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
